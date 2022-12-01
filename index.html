@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro Section</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./JS/index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <img src="images/logo.svg" alt="" />
+      <button onclick="navigationToggle()" id="burger-menu" class="closed-menu" aria-controls="primary-navigation" aria-expanded="false" ><span class="sr-only">Menu</span>
+      </button>
+      <nav class="primary-navigation" data-visible="false">
+        <div class="primary-navigation__options">
+          <ol>
+            <li class="option-menu"><a onclick="expandSubMenu('features-menu', 'features')">Features <span id="features" class="arrow-icon"
+                  data-potition="down"></span></a>
+              <ol id="features-menu" class="sub-menu" data-visible="false">
+                <li>
+                  <a>
+                    <img src="./images/icon-todo.svg" alt="calendar icon">
+                    Todo List
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <img src="./images/icon-calendar.svg" alt="calendar icon">
+                    Calendar
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <img src="./images/icon-reminders.svg" alt="reminders icon">
+                    Reminders
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <img src="./images/icon-planning.svg" alt="planning icon">
+                    Planning
+                  </a>
+                </li>
+              </ol>
+            </li>
+            <li class="option-menu">
+              <a onclick="expandSubMenu('company-menu', 'company')" class="option-menu">
+                Company
+                <span id="company" class="arrow-icon" data-potition="down"></span>
+              </a>
+              <ol id="company-menu" class="sub-menu" data-visible="false">
+                <li><a>History</a></li>
+                <li><a>Our Team</a></li>
+                <li><a>Blog</a></li>
+              </ol>
+            </li>
+            <li>
+              <a>Careers</a>
+            </li>
+            <li>
+              <a>About</a>
+            </li>
+          </ol>
+          <div class="options__session">
+            <a>Login</a>
+            <button>Register</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <picture>
+        <source
+          srcset="images/image-hero-desktop.png"
+          media="(min-width: 769px)"
+        />
+        <img src="images/image-hero-mobile.png" alt="Ilustrative image" />
+      </picture>
+      <section class="clients-information">
+        <h1>Make remote work</h1>
+        <p>
+          Get your team in sync, no matter your location. Streamline processes,
+          create team rituals, and watch productivity soar.
+        </p>
+        <button>Learn more</button>
+        <div class="clients-information__brands">
+          <img src="images/client-databiz.svg" alt="Databitz" />
+          <img src="images/client-audiophile.svg" alt="Audiophile" />
+          <img src="images/client-meet.svg" alt="Meet" />
+          <img src="images/client-maker.svg" alt="Maker" />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

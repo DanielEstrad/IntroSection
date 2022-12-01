@@ -1,0 +1,386 @@
+:root {
+    --almost-white: hsl(0, 0%, 98%);
+    --medium-gray: hsl(0, 0%, 41%);
+    --almost-black: hsl(0, 0%, 8%);
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+    min-height: 100vh;
+    height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+body {
+    font-family: 'Epilogue', sans-serif;
+    background-color: var(--almost-white);
+    overflow-x: hidden;
+}
+
+p {
+    font-size: 18px;
+}
+
+/* Styling */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+}
+
+#burger-menu {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.closed-menu {
+    background-image: url('../images/icon-menu.svg');
+    width: 32px;
+    height: 18px;
+    transition: background-image ease-in-out 0.2s;
+}
+
+.opened-menu {
+    background-image: url('../images/icon-close-menu.svg');
+    width: 26px;
+    height: 26px;
+}
+
+.primary-navigation[data-visible="true"] {
+    transform: translateX(0%);
+}
+
+nav {
+    transform: translateX(100%);
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: end;
+}
+
+.primary-navigation__options, .primary-navigation__options > ol, .options__session {
+    display: flex;
+    flex-direction: column;
+}
+
+.primary-navigation__options {
+    background-color: var(--almost-white);
+    height: 100%;
+    width: 65vw;
+    padding: 5rem 1.5rem;
+    color: var(--medium-gray);
+    gap: 3rem;
+}
+
+.primary-navigation__options > ol {
+    list-style: none;
+    gap: 1rem;
+    padding: 0;
+}
+
+.options__session {
+    gap: 0.825rem;
+    align-items: center;
+}
+
+.options__session > button {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0.825rem;
+    background-color: transparent;
+    border: 2px solid var(--medium-gray);
+    color: var(--medium-gray);
+}
+
+nav a {
+    cursor: pointer;
+}
+
+.arrow-icon {
+    display: inline-block;
+    background-image: url(../images/icon-arrow-down.svg);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 6px;
+    transition: background-image ease 0.2s;
+}
+
+.arrow-icon[data-potition="up"] {
+    background-image: url(../images/icon-arrow-up.svg);
+}
+
+.sub-menu {
+    clear: both;
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    text-align: center;
+    list-style: none;
+    display: grid;
+    justify-items: baseline;
+    gap: 1.5rem;
+    padding: 0;
+    transition: height .2s ease;
+}
+
+.sub-menu[data-visible="true"] {
+    height: fit-content;
+    width: 100%;
+    margin: 1.5rem 0 0.5rem 15%;
+}
+
+.sub-menu a {
+    display: flex;
+    gap: 15px;
+    line-height: 1;
+}
+
+main {
+    display: grid;
+    justify-items: center;
+}
+
+.clients-information {
+    padding: 4rem 1rem;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+}
+
+.clients-information h1 {
+    font-size: 2.2rem;
+}
+
+.clients-information p {
+    text-align: center;
+    color: var(--medium-gray);
+}
+
+.clients-information button {
+    margin-bottom: 3rem;
+    margin-top: 1.5rem;
+    width: 35%;
+    height: 45%;
+    border: none;
+    background-color: var(--almost-black);
+    color: var(--almost-white);
+    border-radius: 0.825rem;
+    font-weight: 700;
+    align-self: center;
+}
+
+.clients-information__brands {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.825rem;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+/* Utilities */
+
+button {
+    cursor: pointer;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@media (min-width: 769px) {
+    header {
+        justify-content: start;
+        gap: 2rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        align-items: center;
+        gap: 5vw;
+    }
+
+    main {
+        grid-auto-flow: column;
+        grid-template-columns: 6fr 4fr;
+        padding: 7rem 15%;
+        gap: 8rem;
+    }
+
+    nav {
+        transform: translateX(0);
+        position: relative;
+        background-color: transparent;
+        width: 100%;
+    }
+
+    .primary-navigation__options,
+    .primary-navigation__options>ol,
+    .options__session {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .primary-navigation__options {
+        width: 100%;
+        padding: 0;
+        flex-direction: row;
+        gap: 3rem;
+        justify-content: space-between;
+    }
+    
+    .primary-navigation__options > ol {
+        list-style: none;
+        gap: 3rem;
+        padding: 0;
+        align-items: center;
+    }
+
+    .primary-navigation__options li {
+        position: relative;
+    }
+    
+    .options__session {
+        gap: 2.250rem;
+        align-items: center;
+    }
+    
+    .options__session>button {
+        width: 120px;
+    }
+
+    #burger-menu {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    
+    .option-menu:hover > .sub-menu, .sub-menu:hover {
+        position: absolute;
+        width: 180px;
+        height: fit-content;
+        padding: 1.25rem;
+        right: 0;
+        margin: 0;
+        background-color: var(--almost-white);
+        box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+        justify-content: center;
+        border-radius: 0.5rem;
+    }
+
+    .option-menu:hover > #company-menu, #company-menu:hover {
+        left: 0;
+        width: 140px;
+    }
+
+    .option-menu:hover > .arrow-icon {
+        background-image: url(../images/icon-arrow-up.svg);
+    }
+
+    .clients-information {
+        justify-items: left;
+    }
+
+    .clients-information h1 {
+        font-size: max(5rem, 10.5rem);
+        line-height: 10rem;
+    }
+    
+    .clients-information p {
+        font-size: 2rem;
+        text-align: left;
+    }
+    
+    .clients-information button {
+        margin-top: 1.5rem;
+        width: 20%;
+        height: 5vh;
+        font-weight: 700;
+    }
+
+    picture {
+        grid-column-start: 2;
+    }
+}
