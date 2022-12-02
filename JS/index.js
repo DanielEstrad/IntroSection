@@ -57,8 +57,4 @@ function switchMenuAttribute() {
     }
 }
 
-window.addEventListener("resize", () => {
-    switchMenuAttribute()
-});
-
 switchMenuAttribute()
