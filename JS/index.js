@@ -31,11 +31,34 @@ function expandSubMenu(menu, arrow) {
         } else {
             featuresSubMenu.setAttribute('data-visible', false)
         }   
-    } /* else {
-        if (featuresVisibility === "false") {
-            featuresSubMenu.setAttribute('data-visible', true)
-        } else {
-            featuresSubMenu.setAttribute('data-visible', false)
-        }
-    } */
+    } 
 }
+
+function changeMenu() {
+    var button = document.getElementById("burger-menu")
+    var menu = document.getElementById("navigation-menu")
+    button.classList.toggle("opened-menu")
+    if (menu.classList.contains("visually-hidden")) {
+        menu.classList.remove("visually-hidden")
+    } else {
+        menu.classList.add("visually-hidden")
+    }
+}
+
+function switchMenuAttribute() {
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    var menu = document.querySelector(".primary-navigation")
+    var status = menu.getAttribute('data-visible')
+
+    if (vw > 769 ) {
+        menu.setAttribute('data-visible', true)
+    } else if (status === "true") {
+        menu.setAttribute('data-visible', false)
+    }
+}
+
+window.addEventListener("resize", () => {
+    switchMenuAttribute()
+});
+
+switchMenuAttribute()

@@ -25,7 +25,6 @@
 */
 html,
 body {
-    min-height: 100vh;
     height: 100%;
 }
 
@@ -114,20 +113,41 @@ header {
     height: 26px;
 }
 
-.primary-navigation[data-visible="true"] {
+/* .primary-navigation[data-visible="true"] {
     transform: translateX(0%);
-}
+    background-color: rgba(0, 0, 0, 0.5);
+} */
 
-nav {
-    transform: translateX(100%);
+.primary-navigation {
+    /* transform: translateX(100%);
     position: absolute;
-    background-color: rgba(0,0,0,0.5);
+    background-color: transparent;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
     justify-content: end;
+    transition: transform ease-in 0.2s;
+    transition: background-color ease 0.2s; */
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: end;
+}
+
+.primary-navigation[data-visible="false"]:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 .primary-navigation__options, .primary-navigation__options > ol, .options__session {
@@ -164,7 +184,7 @@ nav {
     color: var(--medium-gray);
 }
 
-nav a {
+.primary-navigation a {
     cursor: pointer;
 }
 
@@ -279,12 +299,12 @@ button {
 
     main {
         grid-auto-flow: column;
-        grid-template-columns: 6fr 4fr;
-        padding: 7rem 15%;
+        grid-template-columns: 1fr 1fr;
+        padding: 4rem 15%;
         gap: 8rem;
     }
 
-    nav {
+    .primary-navigation {
         transform: translateX(0);
         position: relative;
         background-color: transparent;
@@ -337,7 +357,7 @@ button {
         border: 0;
     }
     
-    .option-menu:hover > .sub-menu, .sub-menu:hover {
+    .option-menu:hover > .sub-menu {
         position: absolute;
         width: 180px;
         height: fit-content;
@@ -350,37 +370,53 @@ button {
         border-radius: 0.5rem;
     }
 
-    .option-menu:hover > #company-menu, #company-menu:hover {
+    .option-menu:hover > #company-menu {
         left: 0;
         width: 140px;
     }
 
-    .option-menu:hover > .arrow-icon {
+    .option-menu:hover .arrow-icon {
         background-image: url(../images/icon-arrow-up.svg);
     }
 
     .clients-information {
+        padding: 2rem 0 0 0;
         justify-items: left;
+        align-items: center;
     }
 
     .clients-information h1 {
-        font-size: max(5rem, 10.5rem);
-        line-height: 10rem;
+        font-size: clamp(2.5rem, 12vw + 1rem, 5.7rem);
+        line-height: 5rem;
+        align-self: end;
     }
     
     .clients-information p {
-        font-size: 2rem;
+        font-size: clamp(0.5rem, 6vw + 1rem, 1.5rem);
         text-align: left;
     }
     
     .clients-information button {
-        margin-top: 1.5rem;
-        width: 20%;
-        height: 5vh;
+        margin: 0;
+        width: 25%;
+        height: 50px;
         font-weight: 700;
+        align-self: start;
+    }
+
+    .clients-information__brands {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 0.825rem;
+        align-items: center;
+        justify-items: start;
+        align-self: end;
+        width: 100%;
     }
 
     picture {
+        display: flex;
+        align-items: center;
         grid-column-start: 2;
     }
 }
